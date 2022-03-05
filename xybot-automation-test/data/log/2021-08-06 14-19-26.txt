@@ -1,0 +1,245 @@
+编号：begin_token_001 用例：用户名正确、密码正确，登录成功
+ 传送数据：{
+  请求方法：post
+  请求地址：https://api.winrobot360.com/oauth/token
+  请求头：{'Authorization': 'Basic Y2xpZW50Ok5ZSTRDRk9HUVZkOE5adWs='}
+  请求参数：{'username': 'ceshi2@ydcs@@enterprise', 'password': 'Cs123456', 'grant_type': 'password', 'clientVersion': '4.2.0', 'scope': 'all', 'login_type': 'remind', 'hostname': 'DESKTOP-KMLBQJP', 'windowsAccount': 'DESKTOP-KMLBQJP\\悠悠子佩'}
+  地址参数：
+  }
+  断言前-->:
+    模块：Token
+    接口返回：{'code': '421', 'clientIp': '60.188.195.29, 60.188.195.29,100.127.128.53', 'msg': '当前账号于[08月06日14点10分]在其它客户端登录，所在Windows账号[DESKTOP-3I9FMG9\\悠悠子佩]，是否需要强制登录？', 'success': 'false', 'path': '/oauth/token', 'apiType': 'oauth2', 'timestamp': '1628230767307'}
+    异常状态：1
+    预期结果：登录成功
+  回填值-->:
+    是否通过:否
+    实际结果：登录失败
+    异常：{"code": "421", "clientIp": "60.188.195.29, 60.188.195.29,100.127.128.53", "msg": "当前账号于[08月06日14点10分]在其它客户端登录，所在Windows账号[DESKTOP-3I9FMG9\\悠悠子佩]，是否需要强制登录？", "success": "false", "path": "/oauth/token", "apiType": "oauth2", "timestamp": "1628230767307"}
+
+编号：begin_token_002 用例：用户名错误、密码正确，登录失败
+ 传送数据：{
+  请求方法：post
+  请求地址：https://api.winrobot360.com/oauth/token
+  请求头：{'Authorization': 'Basic Y2xpZW50Ok5ZSTRDRk9HUVZkOE5adWs=123'}
+  请求参数：{'username': 'ceshi21@ydcs@@enterprise', 'password': 'Cs123456', 'grant_type': 'password', 'clientVersion': '4.2.0', 'scope': 'all', 'login_type': 'remind', 'hostname': 'DESKTOP-KMLBQJP', 'windowsAccount': 'DESKTOP-KMLBQJP\\悠悠子佩'}
+  地址参数：
+  }
+  断言前-->:
+    模块：Token
+    接口返回：{'timestamp': '2021-08-06 14:19:27', 'status': 401, 'error': 'Unauthorized', 'message': 'Unauthorized', 'path': '/oauth/token'}
+    异常状态：1
+    预期结果：登录失败
+  回填值-->:
+    是否通过:否
+    实际结果：数据错误
+    异常：{"timestamp": "2021-08-06 14:19:27", "status": 401, "error": "Unauthorized", "message": "Unauthorized", "path": "/oauth/token"}
+
+编号：begin_token_003 用例：用户名正确、密码错误，登录失败
+ 传送数据：{
+  请求方法：post
+  请求地址：https://api.winrobot360.com/oauth/token1231
+  请求头：{'Authorization': 'Basic Y2xpZW50Ok5ZSTRDRk9HUVZkOE5adWs='}
+  请求参数：{'username': 'ceshi2@ydcs@@enterprise', 'password': 'Cs1234561', 'grant_type': 'password', 'clientVersion': '4.2.0', 'scope': 'all', 'login_type': 'remind', 'hostname': 'DESKTOP-KMLBQJP', 'windowsAccount': 'DESKTOP-KMLBQJP\\悠悠子佩'}
+  地址参数：
+  }
+  断言前-->:
+    模块：Token
+    接口返回：{'code': 400, 'msg': '没有访问权限:/oauth/token1231', 'requestId': 'ed372e1e43e258962fe9dfde', 'success': False}
+    异常状态：1
+    预期结果：登录失败
+  回填值-->:
+    是否通过:是
+    实际结果：登录失败
+    异常：None
+
+编号：begin_token_004 用例：用户名错误、密码正确，登录失败
+ 传送数据：{
+  请求方法：get
+  请求地址：https://api.winrobot360.com/oauth/token
+  请求头：{'Authorization': 'Basic Y2xpZW50Ok5ZSTRDRk9HUVZkOE5adWs='}
+  请求参数：{'username': 'ceshi21@ydcs@@enterprise', 'password': 'Cs1234561', 'grant_type': 'password', 'clientVersion': '4.2.0', 'scope': 'all', 'login_type': 'remind', 'hostname': 'DESKTOP-KMLBQJP', 'windowsAccount': 'DESKTOP-KMLBQJP\\悠悠子佩'}
+  地址参数：
+  }
+  断言前-->:
+    模块：Token
+    接口返回：{'timestamp': '2021-08-06 14:19:28', 'status': 405, 'error': 'Method Not Allowed', 'message': "Request method 'GET' not supported", 'path': '/oauth/token'}
+    异常状态：1
+    预期结果：登录失败
+  回填值-->:
+    是否通过:否
+    实际结果：数据错误
+    异常：{"timestamp": "2021-08-06 14:19:28", "status": 405, "error": "Method Not Allowed", "message": "Request method 'GET' not supported", "path": "/oauth/token"}
+
+编号：begin_token_005 用例：用户名错误、密码正确，登录失败
+ 传送数据：{
+  请求方法：post
+  请求地址：https://api.winrobot360.com/oauth/token
+  请求头：{'Authorization': 'Basic Y2xpZW50Ok5ZSTRDRk9HUVZkOE5adWs='}
+  请求参数：{'username': 'ceshi2@ydcs@@enterprise', 'password': 'Cs123456', 'grant_type': 'password', 'clientVersion': '4.2.0', 'scope': 'all', 'login_type': 'remind', 'hostname': 'DESKTOP-KMLBQJP', 'windowsAccount': 'DESKTOP-KMLBQJP\\悠悠子佩'}
+  地址参数：
+  }
+  断言前-->:
+    模块：Token
+    接口返回：{'code': '421', 'clientIp': '60.188.195.29, 60.188.195.29,100.127.128.54', 'msg': '当前账号于[08月06日14点10分]在其它客户端登录，所在Windows账号[DESKTOP-3I9FMG9\\悠悠子佩]，是否需要强制登录？', 'success': 'false', 'path': '/oauth/token', 'apiType': 'oauth2', 'timestamp': '1628230768566'}
+    异常状态：1
+    预期结果：登录失败
+  回填值-->:
+    是否通过:是
+    实际结果：登录失败
+    异常：None
+
+编号：begin_rich_001 用例：登录，获取客户信息
+ 传送数据：{
+  请求方法：get
+  请求地址：https://api.winrobot360.com/api/v1/user/info/rich
+  请求头：
+  请求参数：
+  地址参数：
+  }
+  断言前-->:
+    模块：Rich
+    接口返回：{'code': 400, 'msg': '没有访问权限:/api/v1/user/info/rich', 'requestId': 'c597eb655d6da6a8f9b6b2ea', 'success': False}
+    异常状态：1
+    预期结果：获取成功
+  回填值-->:
+    是否通过:否
+    实际结果：获取失败
+    异常：返回值数据与预期不匹配
+
+编号：begin_rich_002 用例：未登录，获取客户信息
+ 获取cookies
+  cookies获取-->:
+    返回值：{"access_token":"de75ebe4-7fe9-43fc-a747-eac8a747ecdd","token_type":"bearer","refresh_token":"1b84cba2-79b6-4b9a-847c-995da5983e9c","expires_in":2591999,"scope":"all","code":"200","success":true,"apiType":"oauth2"}
+    返回状态：1
+ 传送数据：{
+  请求方法：get
+  请求地址：https://api.winrobot360.com/api/v1/user/info/rich
+  请求头：{'authorization': 'Bearer de75ebe4-7fe9-43fc-a747-eac8a747ecdd'}
+  请求参数：
+  地址参数：
+  }
+  断言前-->:
+    模块：Rich
+    接口返回：{'data': {'createTime': '2021-04-15 16:21:48', 'updateTime': '2021-08-06 14:19:29', 'uuid': '6772d4d3-3778-4a24-b4c3-a6b9a88c808c', 'name': 'ceshi2@ydcs', 'tenantUuid': 'f9ef5f5a-65c2-4a63-99f2-1112166b3f77', 'phone': '15025380128', 'roleCode': '', 'enterpriseRoleCode': 'e_user', 'latestLoginIpv4': '60.188.195.29, 60.188.195.29,100.127.129.167', 'latestLoginTime': '2021-08-06 14:19:29', 'grade': 'enterprise', 'expiredTime': '2022-06-25 23:59:59', 'enterpriseUuid': 'f9ef5f5a-65c2-4a63-99f2-1112166b3f77', 'enterpriseType': 'public', 'userAbility': 'senior', 'enterpriseUserAccountType': 'senior', 'betaTags': ['console', 'quick', 'dispatch', 'export'], 'enterpriseUserName': 'ceshi2', 'status': 'r', 'clientVersion': ' 4.3.1', 'latestClientLoginTime': '2021-08-06 14:19:29', 'userLicenseUuid': 'f784a1c7-e7b4-4079-a51e-2b34b0a1ec75', 'tradeType': '--', 'gradeName': '企业版', 'remainDays': 323, 'userBenefit': {'userUuid': '6772d4d3-3778-4a24-b4c3-a6b9a88c808c', 'useRobot': True, 'robotDevelopCount': 23, 'marketCreateCount': 0, 'marketJoinCount': 3, 'userGrade': 'enterprise', 'userAbility': 'senior'}, 'enterprise': {'name': '影刀服务端测试', 'abbr': 'ydcs', 'contactMan': '壮壮', 'ownerUuid': '79ef0eb1-3ed4-4d2e-a5a1-564b71b42a2b', 'enableExtraAccount': True}, 'official': False}, 'code': 200, 'success': True, 'requestId': '27e581c3-6096-4782-b23d-b70dc2fa4303'}
+    异常状态：1
+    预期结果：获取失败
+  回填值-->:
+    是否通过:否
+    实际结果：数据错误
+    异常：{"data": {"createTime": "2021-04-15 16:21:48", "updateTime": "2021-08-06 14:19:29", "uuid": "6772d4d3-3778-4a24-b4c3-a6b9a88c808c", "name": "ceshi2@ydcs", "tenantUuid": "f9ef5f5a-65c2-4a63-99f2-1112166b3f77", "phone": "15025380128", "roleCode": "", "enterpriseRoleCode": "e_user", "latestLoginIpv4": "60.188.195.29, 60.188.195.29,100.127.129.167", "latestLoginTime": "2021-08-06 14:19:29", "grade": "enterprise", "expiredTime": "2022-06-25 23:59:59", "enterpriseUuid": "f9ef5f5a-65c2-4a63-99f2-1112166b3f77", "enterpriseType": "public", "userAbility": "senior", "enterpriseUserAccountType": "senior", "betaTags": ["console", "quick", "dispatch", "export"], "enterpriseUserName": "ceshi2", "status": "r", "clientVersion": " 4.3.1", "latestClientLoginTime": "2021-08-06 14:19:29", "userLicenseUuid": "f784a1c7-e7b4-4079-a51e-2b34b0a1ec75", "tradeType": "--", "gradeName": "企业版", "remainDays": 323, "userBenefit": {"userUuid": "6772d4d3-3778-4a24-b4c3-a6b9a88c808c", "useRobot": true, "robotDevelopCount": 23, "marketCreateCount": 0, "marketJoinCount": 3, "userGrade": "enterprise", "userAbility": "senior"}, "enterprise": {"name": "影刀服务端测试", "abbr": "ydcs", "contactMan": "壮壮", "ownerUuid": "79ef0eb1-3ed4-4d2e-a5a1-564b71b42a2b", "enableExtraAccount": true}, "official": false}, "code": 200, "success": true, "requestId": "27e581c3-6096-4782-b23d-b70dc2fa4303"}
+
+编号：begin_querybykey_user_001 用例：获取用户产品相关配置
+ 获取cookies
+  cookies获取-->:
+    返回值：{"access_token":"23117e60-abb1-42f0-86cc-7863bf8095c4","token_type":"bearer","refresh_token":"8c25309d-ce9c-4d2c-9ccb-52ef4c89e64a","expires_in":2591999,"scope":"all","code":"200","success":true,"apiType":"oauth2"}
+    返回状态：1
+ 传送数据：{
+  请求方法：get
+  请求地址：https://api.winrobot360.com/api/v1/user/config/queryByKey
+  请求头：{'authorization': 'Bearer 23117e60-abb1-42f0-86cc-7863bf8095c4'}
+  请求参数：
+  地址参数：{'configKey': 'user_settings'}
+  }
+  断言前-->:
+    模块：queryByKey_user
+    接口返回：{'data': {'createTime': '2021-06-11 15:30:38', 'updateTime': '2021-06-11 15:30:38', 'uuid': 'e95d7e90-6096-446e-8d6f-e654a8a0a527', 'userUuid': '6772d4d3-3778-4a24-b4c3-a6b9a88c808c', 'configKey': 'user_settings', 'configValue': '{"IsDirectCloseApp":true,"MouseGesturesEnabled":true,"KeyboardShortcutEnabled":true,"Hotkeys":[{"Name":"StopApp","ModifierKeys":3,"VirtualKey":81},{"Name":"CaptureImage","ModifierKeys":3,"VirtualKey":88},{"Name":"OpenShadowBotExplorer","ModifierKeys":1,"VirtualKey":116},{"Name":"PauseResumeApp","ModifierKeys":3,"VirtualKey":69}],"IsAutoLogin":false,"IsRememberPassword":true,"IsAutoSave":true,"IntervalTime":3,"IsShowCloseTip":false,"AutoHideRobotWindow":false,"ShutdownExplorerAfterTaskStop":false}'}, 'code': 200, 'success': True, 'requestId': '63d7c70a-caa2-4339-afc7-24d501738ef0'}
+    异常状态：1
+    预期结果：获取成功
+  回填值-->:
+    是否通过:否
+    实际结果：数据错误
+    异常：{"data": {"createTime": "2021-06-11 15:30:38", "updateTime": "2021-06-11 15:30:38", "uuid": "e95d7e90-6096-446e-8d6f-e654a8a0a527", "userUuid": "6772d4d3-3778-4a24-b4c3-a6b9a88c808c", "configKey": "user_settings", "configValue": "{\"IsDirectCloseApp\":true,\"MouseGesturesEnabled\":true,\"KeyboardShortcutEnabled\":true,\"Hotkeys\":[{\"Name\":\"StopApp\",\"ModifierKeys\":3,\"VirtualKey\":81},{\"Name\":\"CaptureImage\",\"ModifierKeys\":3,\"VirtualKey\":88},{\"Name\":\"OpenShadowBotExplorer\",\"ModifierKeys\":1,\"VirtualKey\":116},{\"Name\":\"PauseResumeApp\",\"ModifierKeys\":3,\"VirtualKey\":69}],\"IsAutoLogin\":false,\"IsRememberPassword\":true,\"IsAutoSave\":true,\"IntervalTime\":3,\"IsShowCloseTip\":false,\"AutoHideRobotWindow\":false,\"ShutdownExplorerAfterTaskStop\":false}"}, "code": 200, "success": true, "requestId": "63d7c70a-caa2-4339-afc7-24d501738ef0"}
+
+编号：begin_queryByKey_my_001 用例：
+ 获取cookies
+  cookies获取-->:
+    返回值：{"access_token":"673e8f79-43a3-4a68-8e68-563e1d397afb","token_type":"bearer","refresh_token":"13011dae-0354-4226-b14d-1b6f462bf19b","expires_in":2591999,"scope":"all","code":"200","success":true,"apiType":"oauth2"}
+    返回状态：1
+ 传送数据：{
+  请求方法：get
+  请求地址：https://api.winrobot360.com/api/v1/user/config/queryByKey
+  请求头：{'authorization': 'Bearer 673e8f79-43a3-4a68-8e68-563e1d397afb'}
+  请求参数：
+  地址参数：{'configKey': 'my_favorite_activities'}
+  }
+  断言前-->:
+    模块：queryByKey_my
+    接口返回：{'code': 200, 'success': True, 'requestId': 'b1b2e251-b1a5-4f41-be92-80a2d22d00e5'}
+    异常状态：1
+    预期结果：获取成功
+  回填值-->:
+    是否通过:是
+    实际结果：获取成功
+    异常：None
+
+编号：begin_queryByKey_general_001 用例：获取用户配置错误信息
+ 获取cookies
+  cookies获取-->:
+    返回值：{"access_token":"29c0ef82-7827-45ed-8227-4249515506b0","token_type":"bearer","refresh_token":"5b609063-a4b1-4e5a-b13b-4e2450ea3fb7","expires_in":2591999,"scope":"all","code":"200","success":true,"apiType":"oauth2"}
+    返回状态：1
+ 传送数据：{
+  请求方法：get
+  请求地址：https://api.winrobot360.com/api/v1/user/config/queryByKey
+  请求头：{'authorization': 'Bearer 29c0ef82-7827-45ed-8227-4249515506b0'}
+  请求参数：
+  地址参数：{'configKey': 'general_error_handling_rules'}
+  }
+  断言前-->:
+    模块：queryByKey_general
+    接口返回：{'data': {'createTime': '2021-06-11 15:19:02', 'updateTime': '2021-06-11 15:19:02', 'uuid': '9e2c30d4-58af-4b3a-a17b-d04245a5a50a', 'userUuid': '6772d4d3-3778-4a24-b4c3-a6b9a88c808c', 'configKey': 'general_error_handling_rules', 'configValue': '[{"ErrorHandlingKind":0,"IsEnable":false,"ReceiverAddress":null,"UseCustomSender":false,"EmailProvider":0,"Ip":"smtp.163.com","Port":465,"UseSsl":true,"UserName":null,"AuthCode":null,"SenderAddress":null},{"ErrorHandlingKind":1,"IsEnable":false,"Webhook":null,"DingTalkRobotSecurityPolicy":1,"Keyword":null,"Secret":null},{"ErrorHandlingKind":2,"IsEnable":false,"Webhook":null},{"ErrorHandlingKind":3,"IsEnable":false,"AppId":null,"AppName":null}]'}, 'code': 200, 'success': True, 'requestId': 'd288688b-496b-49b4-b57d-4cd7a6d1a003'}
+    异常状态：1
+    预期结果：获取成功
+  回填值-->:
+    是否通过:是
+    实际结果：获取成功
+    异常：None
+
+编号：begin_queryByKey_quick_001 用例：
+ 获取cookies
+  cookies获取-->:
+    返回值：{"access_token":"e5715313-e52d-45c1-9541-5a2d8a5fefa1","token_type":"bearer","refresh_token":"0998a6b3-93db-4aaa-99a6-121683f14462","expires_in":2591999,"scope":"all","code":"200","success":true,"apiType":"oauth2"}
+    返回状态：1
+ 传送数据：{
+  请求方法：get
+  请求地址：https://api.winrobot360.com/api/v1/user/config/queryByKey
+  请求头：{'authorization': 'Bearer e5715313-e52d-45c1-9541-5a2d8a5fefa1'}
+  请求参数：
+  地址参数：{'configKey': 'quick_plates'}
+  }
+  断言前-->:
+    模块：queryByKey_quick
+    接口返回：{'data': {'createTime': '2021-04-15 16:21:48', 'updateTime': '2021-04-15 16:21:48', 'uuid': 'e76dce4d-b9b2-45fb-b891-fc788a984174', 'userUuid': '6772d4d3-3778-4a24-b4c3-a6b9a88c808c', 'configKey': 'quick_plates', 'configValue': '[{"Apps":[{"AppType":0,"Index":6,"Level":1,"UUID":"eb251e12-9e8a-43da-8d95-3f9aa555bbfa"},{"AppType":0,"Index":5,"Level":1,"UUID":"fd54dbb1-0cc4-456b-b022-172366b593be"},{"AppType":0,"Index":7,"Level":0,"UUID":"c98208da-fc6b-485a-8b79-9a57c07ff5c4"},{"AppType":0,"Index":0,"Level":0,"UUID":"fcabc1b0-19df-4a99-9c5d-64bc4c77264f"},{"AppType":0,"Index":1,"Level":0,"UUID":"addefa63-d535-4669-8e63-c341f87be5fe"},{"AppType":0,"Index":2,"Level":0,"UUID":"f20d954c-7488-405c-9215-c1693aed54cf"},{"AppType":0,"Index":3,"Level":0,"UUID":"e801d513-8974-409a-adec-e9b197155949"},{"AppType":0,"Index":4,"Level":0,"UUID":"27b95dfa-9f3f-487c-b38d-c476afb542fc"},{"AppType":0,"Index":6,"Level":0,"UUID":"3160e29c-a9f6-456d-bbcc-926da0d60993"},{"AppType":0,"Index":5,"Level":0,"UUID":"799af4c3-51ba-48a7-88f0-15039863f502"},{"AppType":0,"Index":4,"Level":1,"UUID":"20596fd7-2d71-4b74-8587-f8b407bd9523"},{"AppType":0,"Index":3,"Level":1,"UUID":"ccd4db60-909e-4d99-817e-d01fff4be33c"},{"AppType":0,"Index":2,"Level":1,"UUID":"6835ae63-9375-4244-807a-17b201ff8a43"},{"AppType":0,"Index":1,"Level":1,"UUID":"262d2d4a-2e81-43f5-b209-808be1772d7d"},{"AppType":0,"Index":0,"Level":1,"UUID":"570ad00c-568a-4721-96a2-386d542cc296"},{"AppType":0,"Index":7,"Level":1,"UUID":"4d13b433-5fbe-4321-a060-eb4927e6ec94"}],"Display":"全局轮盘","IsEnable":true,"ProcessName":"common","createBy":"86a27496-79bc-46c2-b9f7-0624d3d6d320"},{"Apps":[{"AppType":0,"Index":7,"Level":0,"UUID":"f74af603-05af-4814-a9e2-27d0e1f7c111"},{"AppType":0,"Index":0,"Level":0,"UUID":"7aa818bf-de2c-45cf-a8f0-2b9523090178"},{"AppType":0,"Index":6,"Level":1,"UUID":"3fc5ecae-7eeb-43e3-923f-b15361ea97b5"},{"AppType":0,"Index":1,"Level":0,"UUID":"1c005ca4-e6eb-4caa-8dab-752be7bde9d7"},{"AppType":0,"Index":5,"Level":1,"UUID":"58241b84-273f-4b96-bcce-6dfe9c035525"},{"AppType":0,"Index":7,"Level":1,"UUID":"fd79cbd6-277e-4fa1-a76a-9f4abaa98fc8"},{"AppType":0,"Index":4,"Level":1,"UUID":"67746d11-44ef-4370-b888-f372d8f788f0"},{"AppType":0,"Index":2,"Level":1,"UUID":"8fa2e283-aa0e-4b52-9edf-a7ee3e6c2cd3"},{"AppType":0,"Index":3,"Level":1,"UUID":"8e83ca4b-c3a0-4909-92af-1f4479beeb0a"},{"AppType":0,"Index":1,"Level":1,"UUID":"a42e4bd3-491e-40b2-99bd-f9bb85cbade4"}],"Display":"Microsoft Excel","IsEnable":true,"ProcessName":"EXCEL.EXE","createBy":"86a27496-79bc-46c2-b9f7-0624d3d6d320"},{"Apps":[{"AppType":0,"Index":7,"Level":1,"UUID":"1d9041e7-d8cb-49df-9e58-b9cffd1cab15"},{"AppType":0,"Index":6,"Level":1,"UUID":"7aa818bf-de2c-45cf-a8f0-2b9523090178"},{"AppType":0,"Index":5,"Level":1,"UUID":"570f0bd2-116d-40af-a1dd-a66f5de98eee"},{"AppType":0,"Index":1,"Level":1,"UUID":"9614d858-8157-46a1-9f0b-f2c8f04dd815"},{"AppType":0,"Index":0,"Level":1,"UUID":"a3ac96e2-7faf-4c4d-bc30-5fe5f876cd05"},{"AppType":0,"Index":2,"Level":0,"UUID":"7679c8f2-9963-41a2-9f30-41f2ada837bf"},{"AppType":0,"Index":3,"Level":0,"UUID":"67746d11-44ef-4370-b888-f372d8f788f0"},{"AppType":0,"Index":4,"Level":1,"UUID":"40482648-d611-4468-8c3e-587f5c17686c"},{"AppType":0,"Index":4,"Level":0,"UUID":"fd79cbd6-277e-4fa1-a76a-9f4abaa98fc8"},{"AppType":0,"Index":3,"Level":1,"UUID":"243b0c14-66bc-485b-90f0-89d6af0eff00"},{"AppType":0,"Index":5,"Level":0,"UUID":"a0212f34-7918-409e-a82b-099f6dd77527"},{"AppType":0,"Index":2,"Level":1,"UUID":"467efda9-f7bc-4d22-a6fb-01f9ef841239"}],"Display":"Microsoft Word","IsEnable":true,"ProcessName":"WINWORD.EXE","createBy":"86a27496-79bc-46c2-b9f7-0624d3d6d320"},{"Apps":[{"AppType":0,"Index":6,"Level":1,"UUID":"590c383f-baa2-45b9-8560-df8f7382c3ff"},{"AppType":0,"Index":7,"Level":1,"UUID":"a0212f34-7918-409e-a82b-099f6dd77527"},{"AppType":0,"Index":0,"Level":1,"UUID":"7aa818bf-de2c-45cf-a8f0-2b9523090178"},{"AppType":0,"Index":1,"Level":1,"UUID":"1d9041e7-d8cb-49df-9e58-b9cffd1cab15"},{"AppType":0,"Index":5,"Level":1,"UUID":"31d16a95-fc69-43d7-a7c8-348e09a169b6"},{"AppType":0,"Index":6,"Level":0,"UUID":"d3721040-2a77-4381-8814-dcea917e05de"},{"AppType":0,"Index":1,"Level":0,"UUID":"43c6ba7a-bb34-44d2-9ad7-98fe31b9d912"},{"AppType":0,"Index":7,"Level":0,"UUID":"f3dd5e02-3a74-4a29-bc60-aaa84c592828"},{"AppType":0,"Index":4,"Level":0,"UUID":"fd79cbd6-277e-4fa1-a76a-9f4abaa98fc8"},{"AppType":0,"Index":3,"Level":0,"UUID":"67746d11-44ef-4370-b888-f372d8f788f0"},{"AppType":0,"Index":4,"Level":1,"UUID":"40482648-d611-4468-8c3e-587f5c17686c"},{"AppType":0,"Index":3,"Level":1,"UUID":"243b0c14-66bc-485b-90f0-89d6af0eff00"},{"AppType":0,"Index":5,"Level":0,"UUID":"a3ac96e2-7faf-4c4d-bc30-5fe5f876cd05"},{"AppType":0,"Index":2,"Level":1,"UUID":"467efda9-f7bc-4d22-a6fb-01f9ef841239"}],"Display":"Microsoft PowerPoint","IsEnable":true,"ProcessName":"POWERPNT.EXE","createBy":"86a27496-79bc-46c2-b9f7-0624d3d6d320"},{"Apps":[{"AppType":0,"Index":6,"Level":1,"UUID":"ce489342-9281-448a-b917-6db3e4378df8"},{"AppType":0,"Index":5,"Level":1,"UUID":"b0fdf166-8c6d-4261-aece-8d52908d6d83"},{"AppType":0,"Index":4,"Level":1,"UUID":"8820f3d8-519e-4b85-9bf2-8dc882741d50"},{"AppType":0,"Index":3,"Level":1,"UUID":"262d2d4a-2e81-43f5-b209-808be1772d7d"},{"AppType":0,"Index":2,"Level":1,"UUID":"ff1a2a4d-965a-4ffe-b672-6d98042e1ee5"},{"AppType":0,"Index":1,"Level":1,"UUID":"998b9005-1e38-4de4-a290-e7710d118fe5"},{"AppType":0,"Index":0,"Level":1,"UUID":"89af12b2-958d-4068-a8f2-19fa72f53a78"},{"AppType":0,"Index":7,"Level":1,"UUID":"6835ae63-9375-4244-807a-17b201ff8a43"},{"AppType":0,"Index":4,"Level":0,"UUID":"5d522ef5-255d-436f-97b7-8a6b0496ea82"},{"AppType":0,"Index":5,"Level":0,"UUID":"faac74a1-5631-49a7-bea8-9cd3aef9d9c1"},{"AppType":0,"Index":3,"Level":0,"UUID":"6de06e09-f61a-4d92-bb2f-fa9ad998f8d9"}],"Display":"Windows 资源管理器","IsEnable":true,"ProcessName":"explorer.exe","createBy":"86a27496-79bc-46c2-b9f7-0624d3d6d320"},{"Apps":[{"AppType":0,"Index":2,"Level":1,"UUID":"7120941b-c9c9-4aa8-aacb-2dc09826e066"},{"AppType":0,"Index":6,"Level":1,"UUID":"20596fd7-2d71-4b74-8587-f8b407bd9523"},{"AppType":0,"Index":0,"Level":1,"UUID":"dd791e86-3391-4eb1-b95e-4c1656ee2cf4"},{"AppType":0,"Index":5,"Level":1,"UUID":"6de06e09-f61a-4d92-bb2f-fa9ad998f8d9"},{"AppType":0,"Index":4,"Level":1,"UUID":"931f7730-0928-4326-8eaa-dd339c9ed1f1"}],"Display":"Windows桌面","IsEnable":true,"ProcessName":"win-desktop.exe","createBy":"86a27496-79bc-46c2-b9f7-0624d3d6d320"},{"Apps":[{"AppType":0,"Index":7,"Level":1,"UUID":"1095de33-49f5-4238-b15b-accb518e8e56"},{"AppType":0,"Index":0,"Level":1,"UUID":"c0623cb2-1407-4fe2-bf1c-0e8ee8427af3"},{"AppType":0,"Index":1,"Level":1,"UUID":"7949d9b6-860d-4b1d-9bae-a308d13d5aee"},{"AppType":0,"Index":2,"Level":1,"UUID":"729dbf92-6599-4eba-9ead-5d547bb673b8"},{"AppType":0,"Index":3,"Level":1,"UUID":"93d72e62-e597-4a78-bac9-0521d5df25b9"},{"AppType":0,"Index":4,"Level":1,"UUID":"49601654-49e3-400f-85b2-6640bb939831"}],"Display":"Google Chrome","IsEnable":true,"ProcessName":"chrome.exe","createBy":"86a27496-79bc-46c2-b9f7-0624d3d6d320"},{"Apps":[{"AppType":0,"Index":1,"Level":1,"UUID":"e135d86e-34c5-4cf5-a6e4-76e0b97effca"},{"AppType":0,"Index":7,"Level":1,"UUID":"447cad04-3aa0-486b-a61c-5291c73d66d0"},{"AppType":0,"Index":3,"Level":1,"UUID":"84777541-7133-47fd-b9f6-02698dd66ebc"},{"AppType":0,"Index":4,"Level":1,"UUID":"74685bcd-9c7f-4e9b-9e5b-05f6b2872602"},{"AppType":0,"Index":0,"Level":1,"UUID":"ceabe781-e623-4e3e-958c-17c74916759e"},{"AppType":0,"Index":2,"Level":1,"UUID":"dfdf4422-d49d-4add-a9c3-4023f05af5af"}],"Display":"Visual Studio Code","IsEnable":true,"ProcessName":"Code.exe","createBy":"86a27496-79bc-46c2-b9f7-0624d3d6d320"},{"Apps":[{"AppType":0,"Index":4,"Level":1,"UUID":"e90538ee-e3b0-4419-83df-3e5e7ba438b3"},{"AppType":0,"Index":3,"Level":1,"UUID":"e122cb0f-4a81-4fe7-94d0-38fcd620f0d4"}],"Display":"WeChat","IsEnable":true,"ProcessName":"WeChat.exe","createBy":"86a27496-79bc-46c2-b9f7-0624d3d6d320"},{"Apps":[{"AppType":0,"Index":4,"Level":1,"UUID":"e90538ee-e3b0-4419-83df-3e5e7ba438b3"},{"AppType":0,"Index":2,"Level":1,"UUID":"e122cb0f-4a81-4fe7-94d0-38fcd620f0d4"}],"Display":"钉钉","IsEnable":true,"ProcessName":"DingTalk.exe","createBy":"86a27496-79bc-46c2-b9f7-0624d3d6d320"}]'}, 'code': 200, 'success': True, 'requestId': '62fd8ee6-530b-440a-b82f-c78b10cf7443'}
+    异常状态：1
+    预期结果：获取成功
+  回填值-->:
+    是否通过:是
+    实际结果：获取成功
+    异常：None
+
+编号：begj_list_001 用例：获取、轮盘信息
+ 获取cookies
+  cookies获取-->:
+    返回值：{"access_token":"9d487c7b-bd15-4f68-b340-acb4d1b71cf5","token_type":"bearer","refresh_token":"7ab5f2ca-1550-437a-b903-b453aa03f80e","expires_in":2591999,"scope":"all","code":"200","success":true,"apiType":"oauth2"}
+    返回状态：1
+ 传送数据：{
+  请求方法：get
+  请求地址：https://api.winrobot360.com/api/v1/robot/quick/plate/list
+  请求头：{'authorization': 'Bearer 9d487c7b-bd15-4f68-b340-acb4d1b71cf5'}
+  请求参数：
+  地址参数：
+  }
+  断言前-->:
+    模块：List_
+    接口返回：{'data': [{'IsEnable': True, 'ProcessName': 'common', 'createBy': '86a27496-79bc-46c2-b9f7-0624d3d6d320', 'Apps': [{'Index': 6, 'Level': 1, 'UUID': 'eb251e12-9e8a-43da-8d95-3f9aa555bbfa', 'AppType': 0}, {'Index': 5, 'Level': 1, 'UUID': 'fd54dbb1-0cc4-456b-b022-172366b593be', 'AppType': 0}, {'Index': 7, 'Level': 0, 'UUID': 'c98208da-fc6b-485a-8b79-9a57c07ff5c4', 'AppType': 0}, {'Index': 0, 'Level': 0, 'UUID': 'fcabc1b0-19df-4a99-9c5d-64bc4c77264f', 'AppType': 0}, {'Index': 1, 'Level': 0, 'UUID': 'addefa63-d535-4669-8e63-c341f87be5fe', 'AppType': 0}, {'Index': 2, 'Level': 0, 'UUID': 'f20d954c-7488-405c-9215-c1693aed54cf', 'AppType': 0}, {'Index': 3, 'Level': 0, 'UUID': 'e801d513-8974-409a-adec-e9b197155949', 'AppType': 0}, {'Index': 4, 'Level': 0, 'UUID': '27b95dfa-9f3f-487c-b38d-c476afb542fc', 'AppType': 0}, {'Index': 6, 'Level': 0, 'UUID': '3160e29c-a9f6-456d-bbcc-926da0d60993', 'AppType': 0}, {'Index': 5, 'Level': 0, 'UUID': '799af4c3-51ba-48a7-88f0-15039863f502', 'AppType': 0}, {'Index': 4, 'Level': 1, 'UUID': '20596fd7-2d71-4b74-8587-f8b407bd9523', 'AppType': 0}, {'Index': 3, 'Level': 1, 'UUID': 'ccd4db60-909e-4d99-817e-d01fff4be33c', 'AppType': 0}, {'Index': 2, 'Level': 1, 'UUID': '6835ae63-9375-4244-807a-17b201ff8a43', 'AppType': 0}, {'Index': 1, 'Level': 1, 'UUID': '262d2d4a-2e81-43f5-b209-808be1772d7d', 'AppType': 0}, {'Index': 0, 'Level': 1, 'UUID': '570ad00c-568a-4721-96a2-386d542cc296', 'AppType': 0}, {'Index': 7, 'Level': 1, 'UUID': '4d13b433-5fbe-4321-a060-eb4927e6ec94', 'AppType': 0}], 'Display': '全局轮盘'}, {'IsEnable': True, 'ProcessName': 'EXCEL.EXE', 'createBy': '86a27496-79bc-46c2-b9f7-0624d3d6d320', 'Apps': [{'Index': 7, 'Level': 0, 'UUID': 'f74af603-05af-4814-a9e2-27d0e1f7c111', 'AppType': 0}, {'Index': 0, 'Level': 0, 'UUID': '7aa818bf-de2c-45cf-a8f0-2b9523090178', 'AppType': 0}, {'Index': 6, 'Level': 1, 'UUID': '3fc5ecae-7eeb-43e3-923f-b15361ea97b5', 'AppType': 0}, {'Index': 1, 'Level': 0, 'UUID': '1c005ca4-e6eb-4caa-8dab-752be7bde9d7', 'AppType': 0}, {'Index': 5, 'Level': 1, 'UUID': '58241b84-273f-4b96-bcce-6dfe9c035525', 'AppType': 0}, {'Index': 7, 'Level': 1, 'UUID': 'fd79cbd6-277e-4fa1-a76a-9f4abaa98fc8', 'AppType': 0}, {'Index': 4, 'Level': 1, 'UUID': '67746d11-44ef-4370-b888-f372d8f788f0', 'AppType': 0}, {'Index': 2, 'Level': 1, 'UUID': '8fa2e283-aa0e-4b52-9edf-a7ee3e6c2cd3', 'AppType': 0}, {'Index': 3, 'Level': 1, 'UUID': '8e83ca4b-c3a0-4909-92af-1f4479beeb0a', 'AppType': 0}, {'Index': 1, 'Level': 1, 'UUID': 'a42e4bd3-491e-40b2-99bd-f9bb85cbade4', 'AppType': 0}], 'Display': 'Microsoft Excel'}, {'IsEnable': True, 'ProcessName': 'WINWORD.EXE', 'createBy': '86a27496-79bc-46c2-b9f7-0624d3d6d320', 'Apps': [{'Index': 7, 'Level': 1, 'UUID': '1d9041e7-d8cb-49df-9e58-b9cffd1cab15', 'AppType': 0}, {'Index': 6, 'Level': 1, 'UUID': '7aa818bf-de2c-45cf-a8f0-2b9523090178', 'AppType': 0}, {'Index': 5, 'Level': 1, 'UUID': '570f0bd2-116d-40af-a1dd-a66f5de98eee', 'AppType': 0}, {'Index': 1, 'Level': 1, 'UUID': '9614d858-8157-46a1-9f0b-f2c8f04dd815', 'AppType': 0}, {'Index': 0, 'Level': 1, 'UUID': 'a3ac96e2-7faf-4c4d-bc30-5fe5f876cd05', 'AppType': 0}, {'Index': 2, 'Level': 0, 'UUID': '7679c8f2-9963-41a2-9f30-41f2ada837bf', 'AppType': 0}, {'Index': 3, 'Level': 0, 'UUID': '67746d11-44ef-4370-b888-f372d8f788f0', 'AppType': 0}, {'Index': 4, 'Level': 1, 'UUID': '40482648-d611-4468-8c3e-587f5c17686c', 'AppType': 0}, {'Index': 4, 'Level': 0, 'UUID': 'fd79cbd6-277e-4fa1-a76a-9f4abaa98fc8', 'AppType': 0}, {'Index': 3, 'Level': 1, 'UUID': '243b0c14-66bc-485b-90f0-89d6af0eff00', 'AppType': 0}, {'Index': 5, 'Level': 0, 'UUID': 'a0212f34-7918-409e-a82b-099f6dd77527', 'AppType': 0}, {'Index': 2, 'Level': 1, 'UUID': '467efda9-f7bc-4d22-a6fb-01f9ef841239', 'AppType': 0}], 'Display': 'Microsoft Word'}, {'IsEnable': True, 'ProcessName': 'POWERPNT.EXE', 'createBy': '86a27496-79bc-46c2-b9f7-0624d3d6d320', 'Apps': [{'Index': 6, 'Level': 1, 'UUID': '590c383f-baa2-45b9-8560-df8f7382c3ff', 'AppType': 0}, {'Index': 7, 'Level': 1, 'UUID': 'a0212f34-7918-409e-a82b-099f6dd77527', 'AppType': 0}, {'Index': 0, 'Level': 1, 'UUID': '7aa818bf-de2c-45cf-a8f0-2b9523090178', 'AppType': 0}, {'Index': 1, 'Level': 1, 'UUID': '1d9041e7-d8cb-49df-9e58-b9cffd1cab15', 'AppType': 0}, {'Index': 5, 'Level': 1, 'UUID': '31d16a95-fc69-43d7-a7c8-348e09a169b6', 'AppType': 0}, {'Index': 6, 'Level': 0, 'UUID': 'd3721040-2a77-4381-8814-dcea917e05de', 'AppType': 0}, {'Index': 1, 'Level': 0, 'UUID': '43c6ba7a-bb34-44d2-9ad7-98fe31b9d912', 'AppType': 0}, {'Index': 7, 'Level': 0, 'UUID': 'f3dd5e02-3a74-4a29-bc60-aaa84c592828', 'AppType': 0}, {'Index': 4, 'Level': 0, 'UUID': 'fd79cbd6-277e-4fa1-a76a-9f4abaa98fc8', 'AppType': 0}, {'Index': 3, 'Level': 0, 'UUID': '67746d11-44ef-4370-b888-f372d8f788f0', 'AppType': 0}, {'Index': 4, 'Level': 1, 'UUID': '40482648-d611-4468-8c3e-587f5c17686c', 'AppType': 0}, {'Index': 3, 'Level': 1, 'UUID': '243b0c14-66bc-485b-90f0-89d6af0eff00', 'AppType': 0}, {'Index': 5, 'Level': 0, 'UUID': 'a3ac96e2-7faf-4c4d-bc30-5fe5f876cd05', 'AppType': 0}, {'Index': 2, 'Level': 1, 'UUID': '467efda9-f7bc-4d22-a6fb-01f9ef841239', 'AppType': 0}], 'Display': 'Microsoft PowerPoint'}, {'IsEnable': True, 'ProcessName': 'explorer.exe', 'createBy': '86a27496-79bc-46c2-b9f7-0624d3d6d320', 'Apps': [{'Index': 6, 'Level': 1, 'UUID': 'ce489342-9281-448a-b917-6db3e4378df8', 'AppType': 0}, {'Index': 5, 'Level': 1, 'UUID': 'b0fdf166-8c6d-4261-aece-8d52908d6d83', 'AppType': 0}, {'Index': 4, 'Level': 1, 'UUID': '8820f3d8-519e-4b85-9bf2-8dc882741d50', 'AppType': 0}, {'Index': 3, 'Level': 1, 'UUID': '262d2d4a-2e81-43f5-b209-808be1772d7d', 'AppType': 0}, {'Index': 2, 'Level': 1, 'UUID': 'ff1a2a4d-965a-4ffe-b672-6d98042e1ee5', 'AppType': 0}, {'Index': 1, 'Level': 1, 'UUID': '998b9005-1e38-4de4-a290-e7710d118fe5', 'AppType': 0}, {'Index': 0, 'Level': 1, 'UUID': '89af12b2-958d-4068-a8f2-19fa72f53a78', 'AppType': 0}, {'Index': 7, 'Level': 1, 'UUID': '6835ae63-9375-4244-807a-17b201ff8a43', 'AppType': 0}, {'Index': 4, 'Level': 0, 'UUID': '5d522ef5-255d-436f-97b7-8a6b0496ea82', 'AppType': 0}, {'Index': 5, 'Level': 0, 'UUID': 'faac74a1-5631-49a7-bea8-9cd3aef9d9c1', 'AppType': 0}, {'Index': 3, 'Level': 0, 'UUID': '6de06e09-f61a-4d92-bb2f-fa9ad998f8d9', 'AppType': 0}], 'Display': 'Windows 资源管理器'}, {'IsEnable': True, 'ProcessName': 'win-desktop.exe', 'createBy': '86a27496-79bc-46c2-b9f7-0624d3d6d320', 'Apps': [{'Index': 2, 'Level': 1, 'UUID': '7120941b-c9c9-4aa8-aacb-2dc09826e066', 'AppType': 0}, {'Index': 6, 'Level': 1, 'UUID': '20596fd7-2d71-4b74-8587-f8b407bd9523', 'AppType': 0}, {'Index': 0, 'Level': 1, 'UUID': 'dd791e86-3391-4eb1-b95e-4c1656ee2cf4', 'AppType': 0}, {'Index': 5, 'Level': 1, 'UUID': '6de06e09-f61a-4d92-bb2f-fa9ad998f8d9', 'AppType': 0}, {'Index': 4, 'Level': 1, 'UUID': '931f7730-0928-4326-8eaa-dd339c9ed1f1', 'AppType': 0}], 'Display': 'Windows桌面'}, {'IsEnable': True, 'ProcessName': 'chrome.exe', 'createBy': '86a27496-79bc-46c2-b9f7-0624d3d6d320', 'Apps': [{'Index': 7, 'Level': 1, 'UUID': '1095de33-49f5-4238-b15b-accb518e8e56', 'AppType': 0}, {'Index': 0, 'Level': 1, 'UUID': 'c0623cb2-1407-4fe2-bf1c-0e8ee8427af3', 'AppType': 0}, {'Index': 1, 'Level': 1, 'UUID': '7949d9b6-860d-4b1d-9bae-a308d13d5aee', 'AppType': 0}, {'Index': 2, 'Level': 1, 'UUID': '729dbf92-6599-4eba-9ead-5d547bb673b8', 'AppType': 0}, {'Index': 3, 'Level': 1, 'UUID': '93d72e62-e597-4a78-bac9-0521d5df25b9', 'AppType': 0}, {'Index': 4, 'Level': 1, 'UUID': '49601654-49e3-400f-85b2-6640bb939831', 'AppType': 0}], 'Display': 'Google Chrome'}, {'IsEnable': True, 'ProcessName': 'Code.exe', 'createBy': '86a27496-79bc-46c2-b9f7-0624d3d6d320', 'Apps': [{'Index': 1, 'Level': 1, 'UUID': 'e135d86e-34c5-4cf5-a6e4-76e0b97effca', 'AppType': 0}, {'Index': 7, 'Level': 1, 'UUID': '447cad04-3aa0-486b-a61c-5291c73d66d0', 'AppType': 0}, {'Index': 3, 'Level': 1, 'UUID': '84777541-7133-47fd-b9f6-02698dd66ebc', 'AppType': 0}, {'Index': 4, 'Level': 1, 'UUID': '74685bcd-9c7f-4e9b-9e5b-05f6b2872602', 'AppType': 0}, {'Index': 0, 'Level': 1, 'UUID': 'ceabe781-e623-4e3e-958c-17c74916759e', 'AppType': 0}, {'Index': 2, 'Level': 1, 'UUID': 'dfdf4422-d49d-4add-a9c3-4023f05af5af', 'AppType': 0}], 'Display': 'Visual Studio Code'}, {'IsEnable': True, 'ProcessName': 'WeChat.exe', 'createBy': '86a27496-79bc-46c2-b9f7-0624d3d6d320', 'Apps': [{'Index': 4, 'Level': 1, 'UUID': 'e90538ee-e3b0-4419-83df-3e5e7ba438b3', 'AppType': 0}, {'Index': 3, 'Level': 1, 'UUID': 'e122cb0f-4a81-4fe7-94d0-38fcd620f0d4', 'AppType': 0}], 'Display': 'WeChat'}, {'IsEnable': True, 'ProcessName': 'DingTalk.exe', 'createBy': '86a27496-79bc-46c2-b9f7-0624d3d6d320', 'Apps': [{'Index': 4, 'Level': 1, 'UUID': 'e90538ee-e3b0-4419-83df-3e5e7ba438b3', 'AppType': 0}, {'Index': 2, 'Level': 1, 'UUID': 'e122cb0f-4a81-4fe7-94d0-38fcd620f0d4', 'AppType': 0}], 'Display': '钉钉'}], 'code': 200, 'success': True, 'requestId': 'a16e7f62-d5b0-40bb-8a51-70c9dc288dc5'}
+    异常状态：1
+    预期结果：获取成功
+  回填值-->:
+    是否通过:是
+    实际结果：获取成功
+    异常：None
+
+-----------------------------------------------
+编号：begin_login_ces_001 用例：用户名正确、密码正确，登录成功
+跳过该行用例
+
+-----------------------------------------------
